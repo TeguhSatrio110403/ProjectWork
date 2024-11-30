@@ -4,7 +4,9 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import {
   loginController,
-  saveAccelerationData,
+  saveAccelerationA_yData,
+  saveAcceleration_xData,
+  saveAcceleration_zData,
   saveSensorPHData,
   saveTurbidityData,
   saveTemperatureData,
@@ -71,7 +73,7 @@ app.post('/login', loginController);
 app.post('/sensors', async (req, res) => {
   const { date, accelX, accelY, accelZ, turbidity, temperature, ph } = req.body;
   try {
-    await saveAccelerationData({
+    await saveAcceleration_xData({
       timestamp: date,
       acceleration_x: accelX,
       acceleration_y: accelY,
